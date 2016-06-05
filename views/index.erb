@@ -4,4 +4,27 @@
 	<input type="submit" value="Guess!">
 </form>
 
-<h2>The secret number is <em><%= number %></em>!</h2>
+<% if eval != 0 %>
+<p> The guess is 
+	
+	<% if diff.abs >= 5 %>
+		<em>a lot</em>
+	<% elsif diff == 0%>
+	<% end %>
+
+	<% case eval %>
+	<% when 1 %>
+		bigger than
+	<% when 0 %>
+		the same as
+	<% when -1 %>
+		smaller than
+	<% end %>
+
+	the secret number </p>
+
+<h3>your guess was <%=guess%></h3>
+
+<% elsif eval = 0 %>
+<h2>YAY! The secret number is <em><%= number %></em>!</h2>
+<% end %>
