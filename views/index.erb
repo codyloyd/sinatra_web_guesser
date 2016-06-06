@@ -4,9 +4,9 @@
 	<input type="submit" value="Guess!">
 </form>
 
+<% if number != guess %>
 <p> The guess is <%= message %>	the secret number </p>
-
 <h3>your guess was <%=guess%> </h3>
-
-
+<% else %>
 <h2>YAY! The secret number is <em><%= number %></em>!</h2>
+<% end %>
