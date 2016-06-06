@@ -22,7 +22,7 @@ h2 {
 	font-size: 65px;
 }
 
-input {
+input,button {
     border: 2px solid #dc322f;
     border-radius: 4px;
     background-color: #fdf6e3;
@@ -30,6 +30,8 @@ input {
     font-family: "hallo";
     font-size: 36px;
 }
+
+
 
 .red {
 	color: #dc322f;

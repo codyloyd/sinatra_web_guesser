@@ -5,10 +5,13 @@
 </form>
 
 <% if number != guess %>
-<p class="<%= color %>"> The guess is <%= message %>	the secret number </p>
+<p class="<%= color %>"> The guess is <%= message %> the secret number </p>
+<% if guess != 0 %>
 <h3 class="<%= color %>">your guess was <%=guess%> </h3>
+<% end %>
 <% else %>
 <h2 class="<%= color %>">YAY! The secret number is <em><%= number %></em>!</h2>
+<a href="/reset"><button>Play Again?</button></a>
 <% end %>
 
 <p>You have <%=guesses_remaining+1%> guesses remaining </p>

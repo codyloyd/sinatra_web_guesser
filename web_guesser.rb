@@ -6,8 +6,8 @@ require 'sinatra/reloader'
 
 get '/' do
   guess = params["guess"].to_i
-  guess_response = check_guess(guess)
   guesses
+  guess_response = check_guess(guess)
   erb :index, :locals => {:number => @@secret_number, 
                           :guess => guess, 
                           :message => guess_response[0], 
@@ -19,21 +19,29 @@ get '/loser' do
   erb :loser, :locals => {:number => @@secret_number}
 end
 
+get '/reset' do
+  reset_game
+  redirect "/"
+end
+
 def guesses
-  if @@guesses_remaining > 0
+  if @@guesses_remaining >= 0
     @@guesses_remaining -= 1
   else
-    @@secret_number = rand 100
-    @@guesses_remaining = 5
     redirect "/loser"
   end
+end
+
+def reset_game
+  @@secret_number = rand 100
+  @@guesses_remaining = 5
 end
 
 def check_guess(guess)
   message = ""
   color = "yellow"
-  eval = guess <=> Secret_number
-  diff = guess - Secret_number 
+  eval = guess <=> @@secret_number
+  diff = guess - @@secret_number 
 
   if diff.abs >= 5
     message += "<em>a lot</em>"
