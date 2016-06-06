@@ -1,0 +1,44 @@
+@font-face {
+	font-family: hallo;
+	src: url(Hallo_sans.otf);
+}
+
+body {
+	background-color: #fdf6e3;
+	color: #002b36;
+	font-family: "hallo";
+	text-align: center;
+}
+
+p {
+	font-size: 45px;
+}
+
+h3 {
+	font-size: 55px;
+}
+
+h2 {
+	font-size: 65px;
+}
+
+input {
+    border: 2px solid #dc322f;
+    border-radius: 4px;
+    background-color: #fdf6e3;
+    color: #002b36;
+    font-family: "hallo";
+    font-size: 36px;
+}
+
+.red {
+	color: #dc322f;
+}
+
+.yellow {
+	color: #cb4b16;
+}
+
+.blue {
+	color: #268bd2;
+}
