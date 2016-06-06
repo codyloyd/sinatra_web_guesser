@@ -1,7 +1,8 @@
 require 'sinatra'
+require 'sinatra/reloader'
 
 @@secret_number = rand 100
-@@guesses_remaining = 5
+@@guesses_remaining = 6
 
 get '/' do
   guess = params["guess"].to_i
@@ -24,7 +25,7 @@ get '/reset' do
 end
 
 def guesses
-  if @@guesses_remaining >= 0
+  if @@guesses_remaining > 0
     @@guesses_remaining -= 1
   else
     redirect "/loser"
@@ -33,7 +34,7 @@ end
 
 def reset_game
   @@secret_number = rand 100
-  @@guesses_remaining = 5
+  @@guesses_remaining = 6
 end
 
 def check_guess(guess)
