@@ -1,11 +1,4 @@
-
-<form id="submitguess">
-	<input type="text" name="guess" placeholder="1-100" >
-	<input type="submit" value="Guess!" >
-</form>
-
-<div class="content">
-	<% if number != guess  %>
+<% if number != guess  %>
 <% if guess != 0 %>
 		<p class="<%= color %>"> The guess is <%= message %> the secret number </p>
  		<h3 class="<%= color %>">your guess was <%=guess%> </h3>
@@ -15,4 +8,3 @@
  	<h2 class="<%= color %>">YAY! The secret number is <em><%= number %></em>!</h2>
  	<a href="/reset"><button>Play Again?</button></a>
 <% end %>
-</div>

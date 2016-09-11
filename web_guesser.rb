@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'sinatra/reloader'
+# require 'sinatra/reloader'
 
 @@secret_number = rand 100
 @@guesses_remaining = 6
@@ -25,7 +25,7 @@ get '/reset' do
 end
 
 def guesses
-  if @@guesses_remaining > 0
+  if @@guesses_remaining > 1
     @@guesses_remaining -= 1
   else
     redirect "/loser"
