@@ -6,7 +6,9 @@ require 'sinatra'
 
 get '/' do
   guess = params["guess"].to_i
-  guesses
+  if params["guess"]
+    guesses
+  end
   guess_response = check_guess(guess)
   erb :index, :locals => {:number => @@secret_number, 
                           :guess => guess, 
