@@ -1,13 +1,13 @@
 require 'sinatra'
 # require 'sinatra/reloader'
 
-@@secret_number = rand 100
+@@secret_number = 99
 @@guesses_remaining = 6
 
 get '/' do
   guess = params["guess"].to_i
   if params["guess"]
-    guesses
+    guesses guess
   end
   guess_response = check_guess(guess)
   erb :index, :locals => {:number => @@secret_number, 
@@ -26,16 +26,15 @@ get '/reset' do
   redirect "/"
 end
 
-def guesses
-  if @@guesses_remaining > 1
+def guesses guess
     @@guesses_remaining -= 1
-  else
+  if @@guesses_remaining < 1 && guess != @@secret_number
     redirect "/loser"
   end
 end
 
 def reset_game
-  @@secret_number = rand 100
+  @@secret_number = 99
   @@guesses_remaining = 6
 end
 
