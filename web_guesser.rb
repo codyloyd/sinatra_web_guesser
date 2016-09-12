@@ -1,7 +1,7 @@
 require 'sinatra'
 # require 'sinatra/reloader'
 
-@@secret_number = 99
+@@secret_number = rand 100
 @@guesses_remaining = 6
 
 get '/' do
@@ -34,7 +34,7 @@ def guesses guess
 end
 
 def reset_game
-  @@secret_number = 99
+  @@secret_number = rand 100
   @@guesses_remaining = 6
 end
 
